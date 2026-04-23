@@ -1,0 +1,21 @@
+Implementado em C:\Users\Matheus\Desktop\TCC.
+
+Criei o projeto Dockerizado com FastAPI, Qdrant, Ollama, ingestão RAG, UI web simples, modo ollama/cloud/compare, avaliação CSV e testes. Arquivos principais: docker-compose.yml, Dockerfile, README.md, app/main.py.
+
+Validei:
+
+Parser: 120 fontes oficiais, 17 PDFs, 103 HTML.
+Testes locais: 6 passed.
+docker compose config --quiet: OK.
+Não consegui buildar/subir Docker porque o Docker Desktop não está rodando: daemon dockerDesktopLinuxEngine indisponível.
+Para rodar quando iniciar o Docker Desktop:
+
+cd C:\Users\Matheus\Desktop\TCC
+Copy-Item .env.example .env
+docker compose up --build -d
+docker compose exec ollama ollama pull llama3.1:8b
+docker compose exec app python -m app.ingest --source universo_links_tcc_2.md --reset
+Depois acesse http://localhost:8000. Para avaliar:
+
+docker compose exec app python -m app.evaluate
+

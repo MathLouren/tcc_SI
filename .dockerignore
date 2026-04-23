@@ -1,0 +1,10 @@
+.env
+.git
+.pytest_cache
+.venv
+__pycache__
+data/cache
+data/exports
+data/qdrant
+data/ollama
+
